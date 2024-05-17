@@ -1,4 +1,4 @@
-import User from '../Models/User.js';
+import User from '../models/User.js';
 import passport from 'passport'; //npm library that handles logins
 
 export const login = (req, res) => {
