@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WW1 Game</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    <div id="mainStartDiv">
+        <form id="startForm" action="/startGame" method="GET">
+            <button type="submit" id="STARTbutton">START GAME</button>
+        </form>
+    </div>
+    <!--<div class="dividingBar"></div>-->
+    <div id="extraContent">
+        <img id="frontSoldierImg" src="/images/soldier.webp" onclick="func()">
+        <div id="textContent">
+            <h1>The War Game</h1>
+            <p style="font-family: Kumbh Sans"><span style="color: #b30000; font-family: Lemon Milk;">War.</span> is a simulation game based off of World War I. This game pits country against country in a struggle for power across a vast region. Alliances, negotiations, and distribution of the spoils of victory are all essential to staying alive in the game. But beware...not even alliances are safe from sabotage.</p>
+        </div>
+    </div>
+    
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
+

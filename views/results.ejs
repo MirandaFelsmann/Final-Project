@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="/resultstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    <div id="content">
+        <% if (country1 === "Atweena" && country2 === "Nurovia") { %>
+            <h3 id="round" style="text-align: center; margin: 0">Round One</h3>
+        <% } %>
+        
+        <div id="versusDiv">
+            <h2><%=country1%> <span style="font-size: 90%; font-style: italic">against</span> <%=country2%></h2>
+        </div>
+        <div id="versusDivSmall">
+            <h2><%=country1%></h2>
+            <span id="against" style="font-style: italic">against</span>
+            <h2><%=country2%></h2>
+        </div>
+        
+        <div id="statsDiv">
+            <div id="country1stats">
+                <h3 id="country1header"><%= country1 %></h3>
+                <div class="allies">
+                    <% for (let i = 0; i < numAllies1; i++) { %>
+                        <div class="allyBubble"><%=nation1.currAllies[i].name%></div>
+                    <% } %>
+                </div>
+                <div class="finalStats">
+                    <div><span style="font-family: Lemon Milk"><%=nation1.totalArmy%></span><br>army</div>
+                    <div><span style="font-family: Lemon Milk"><%=nation1.totalNavy%></span><br>navy</div>
+                    <div><span id="total1" style="font-family: Lemon Milk"><%=nation1.totalTotal%></span><br>total</div>
+                </div>
+            </div>
+            <div id="versus">v.</div>
+            <div id="country2stats">
+                <h3 id="country2header"><%= country2 %></h3>
+                <div class="allies">
+                    <% for (let x = 0; x < numAllies2; x++) { %>
+                        <div class="allyBubble"><%=nation2.currAllies[x].name%></div>
+                    <% } %>
+                </div>
+                <div style="flex-grow: 1"></div>
+                <div class="finalStats">
+                    <div><span style="font-family: Lemon Milk"><%=nation2.totalArmy%></span><br>army</div>
+                    <div><span style="font-family: Lemon Milk"><%=nation2.totalNavy%></span><br>navy</div>
+                    <div><span id="total2" style="font-family: Lemon Milk"><%=nation2.totalTotal%></span><br>total</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="resultDiv">
+            <span id="result"></span>
+        </div>
+        <div id="spaceFill" style="flex-grow: 1;"></div>
+        <form action="/aftermath" method="POST" style="display: flex">
+            <input type="hidden" name="country1" value="<%= country1 %>">
+            <input type="hidden" name="country2" value="<%= country2 %>">
+            <input type="hidden" name="winner" id="winner">
+            <input type="hidden" name="loser" id="loser">
+            <div style="display: flex; justify-content: space-between; width: 100%">
+                <a style="text-decoration: none" class="button" href="javascript:history.go(-1)">&larr;</a>
+                <button class="button" type="submit">&rarr;</button>
+            </div>
+        </form>
+   
+        
+    </div>
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    
+
+
+    <script>
+            if (parseInt(document.getElementById('total1').textContent) > parseInt(document.getElementById('total2').textContent)) {
+                document.getElementById('result').innerHTML = "<span style='color: #b30000'><%=country1%></span> has emerged victorious";
+                document.getElementById('winner').value = "<%=country1%>";
+                document.getElementById('loser').value = "<%=country2%>";
+                console.log('country1')
+                console.log(document.getElementById('total1').textContent)
+                console.log(document.getElementById('total2').textContent)
+            } else if (parseInt(document.getElementById('total1').textContent) < parseInt(document.getElementById('total2').textContent)) {
+                document.getElementById('result').innerHTML = "<span style='color: #b30000'><%=country2%></span> has emerged victorious";
+                document.getElementById('winner').value = "<%=country2%>";
+                document.getElementById('loser').value = "<%=country1%>";
+                console.log('country2')
+            } else if (parseInt(document.getElementById('total1').textContent) === parseInt(document.getElementById('total2').textContent)) {
+                document.getElementById('result').textContent = "This battle has ended in a stalemate"
+                console.log("tie")
+            }
+        
+        async function homefunc() { //search box function
+            window.location.href = '/'; 
+        }
+        
+        
+    </script>
+            
+</body>
+</html>
+
+

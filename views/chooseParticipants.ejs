@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants</title>
+    <link rel="stylesheet" href="/participantstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+        <div id="headerLinks">
+              <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+        </div>
+        <div id="topSpaceFill"></div>
+        <div class="content" style="height: 100%">
+        <div id="header">
+            <h1 style="text-align: center; margin: 0; margin-bottom: 30px; margin-top: 30px">Participants</h1>
+        </div>
+        
+
+
+        
+            
+            <form action="/alliances" method="POST" style="display: flex; flex-direction: column; justify-content: center; flex-grow: 1; padding-left: 30px; padding-right: 30px;">
+                <div id="countryCircContainer">
+
+                    <% for (let x=0;x < countries.length; x++) { %>
+                        <div style="display: flex; flex-direction: column; justify-content: center;">
+                            <div class="circle" style="--i:<%=x%>;">
+                            <label for="<%= countries[x].name %>"><%= countries[x].name %></label>
+
+                        </div>
+                        <div style="margin: auto;">
+                            <select class="dropdown" name="<%= countries[x].name %>" id="<%= countries[x].name %>">
+                                <option value="<%= option1 %>">joining for <%= option1 %></option>
+                                <option value="<%= option2 %>">joining for <%= option2 %></option>
+                                <option selected="true" value="neutral">stay neutral</option>
+                            </select>
+                        </div>
+                        </div>
+
+                    <% } %>
+
+                </div>
+                <label for="option1" style="display: none"></label>
+                <input type="text" id="option1" name="option1" value="<%=option1%>" required style="display: none">
+                <label for="option2" style="display: none"></label>
+                <input type="text" id="option2" name="option2" value="<%=option2%>" required style="display: none">
+                <div id="spaceFill" style="flex-grow: 1"></div>
+                <div style="display: flex; flex-direction: row; justify-content: space-between; column-gap: 20px">
+                    <div class="buttonContainer">
+<!--                        <p style="font-family: Kumbh Sans; margin: 0 0 5px 0; padding: 3px;">start overview</p>-->
+                        <a style="text-decoration: none" class="button" href="javascript:history.go(-1)">&larr;</a>
+                    </div>
+                    <div class="buttonContainer" style="text-align: right">
+<!--                        <p style="font-family: Kumbh Sans; margin: 0 0 5px 0; padding: 3px;">building a force</p>-->
+                        <button class="button" type="submit">&rarr;</button>
+                    </div>
+                    
+                    
+                </div>
+                
+            </form>
+        
+    </div>
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+body {
+    margin: 0px;
+    font-family: Lemon Milk;
+    background-color: #d5dede;
+}
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+#topSpaceFill {
+/*    height: 100px;*/
+    height: 10px;
+}
+
+#mainStartDiv {
+    position: relative;
+    width: 100vw;
+    height: calc(100vw*0.6090887461);
+    background-image: url('images/MAP2.jpg');
+    background-size: cover;                      /* <------ */
+    background-repeat: no-repeat;
+    background-position: top; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.4);
+    background-blend-mode: lighten;
+}
+
+#mainStartDiv::after {
+    content: "";
+    background: grey;
+    position: absolute;
+    bottom: -3px;
+    left: 25%;
+    height: 3px;
+    width: 50%;
+    margin: auto;
+    z-index: 900;
+}
+
+#startForm {
+    position: relative;
+    margin: auto;
+}
+
+#STARTbutton {
+    position: relative;
+    font-family: Lemon Milk;
+    margin: auto;
+    top: -20px;
+    width: 20vw;
+    font-size: 20px;
+    background-color: #354860;
+    border: 2px solid black;
+    border-radius: 20px;
+    color: lightgrey;
+    padding: 10px 0px 10px 0px;
+    min-width: 167px;
+    box-shadow: 0px 0px 20px black;
+}
+
+.dividingBar {
+    height: 3px;
+    width: 70vw;
+    margin: auto;
+    background-color: grey;
+}
+
+#extraContent {
+    padding: 70px 30px 70px 0px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    background-color: #c7cece;
+    position: relative;
+}
+
+#extraContent::after {
+    content: "";
+    background: grey;
+    position: absolute;
+    bottom: -3px;
+    left: 25%;
+    height: 3px;
+    width: 50%;
+    margin: auto;
+}
+
+#textContent {
+    width: 80vw;
+    margin: auto;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+#frontSoldierImg {
+    width: 40vw;
+    border-bottom-right-radius: 500px;
+    border-top-right-radius: 500px;
+    object-fit: cover;
+    max-height: 330px;
+}
+
+ @media only screen and (max-width: 780px) {
+    #extraContent {
+        flex-direction: column;
+        grid-row-gap: 30px;
+    }
+    #frontSoldierImg {
+        width: 80vw;
+        height: calc(60vw*0.8049353702);
+       
+    }
+}
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+}

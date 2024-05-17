@@ -1,0 +1,33 @@
+<tr id="<%=winAllies[n].name%>">
+    <td id="<%=winAllies[n].name%>Name"><input name="<%=winAllies[n].name%>Name" value="<%= winAllies[n].name%>"></td>
+    <td id="<%=winAllies[n].name%>Army">
+        <input id="<%=winAllies[n].name%>Army" name="<%=winAllies[n].name%>Army" value="<%= winAllies[n].army%>" placeholder="<%= winAllies[n].army%>">
+    </td>
+    <td id="<%=winAllies[n].name%>Navy">
+        <input id="<%=winAllies[n].name%>Navy" name="<%=winAllies[n].name%>Navy" value="<%=winAllies[n].navy%>" placeholder="<%=winAllies[n].navy%>">
+    </td>
+    <td id="<%=winAllies[n].name%>Moral">
+        <input id="<%=winAllies[n].name%>Moral" name="<%=winAllies[n].name%>Moral" value="<%=winAllies[n].moral%>">
+    </td>
+    <td id="<%=winAllies[n].name%>Total">
+        <input id="<%=winAllies[n].name%>Total" name="<%=winAllies[n].name%>Total" value="<%= winAllies[n].total%>" placeholder="<%= winAllies[n].total%>">
+    </td>
+</tr>
+<tr id="<%= loseAllies[t].name%>">
+    <td id="<%= loseAllies[t].name%>Name">
+        <input id="<%= loseAllies[t].name%>Name" name="<%=loseAllies[t].name%>Name" value="<%=loseAllies[t].name%>">
+    </td>
+    <td id="<%= loseAllies[t].name%>Army">
+        <input id="<%=loseAllies[t].name%>Army" name="<%=loseAllies[t].name%>Army" value="<%=loseAllies[t].army%>" placeholder="<%=loseAllies[t].army%>">
+    </td>
+    <td id="<%= loseAllies[t].name%>Navy">
+        <input id="<%=loseAllies[t].name%>Navy" name="<%=loseAllies[t].name%>Navy" value="<%=loseAllies[t].navy%>" placeholder="<%=loseAllies[t].navy%>">
+    </td>
+    <td id="<%= loseAllies[t].name%>Moral">
+        <input id="<%= loseAllies[t].name%>Moral" name="<%= loseAllies[t].name%>Moral" value="<%=loseAllies[t].total%>">
+        <%= loseAllies[t].moral %>
+    </td>
+    <td id="<%= loseAllies[t].name%>Total">
+        <input id="<%= loseAllies[t].name%>Total" name="<%= loseAllies[t].name%>Total" value="<%=loseAllies[t].total%>" placeholder="<%=loseAllies[t].total%>">
+    </td>
+</tr>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Round</title>
+    <link rel="stylesheet" href="/newroundstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    <div id="content">
+        <h2 style="margin-top: 0; text-align: center">Current Military Power</h2>
+        <table id="statsTable">
+            <thead>
+                <tr>
+                    <th>Nation</th>
+                    <th>Army</th>
+                    <th>Navy</th>
+                    <th>Morale</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < stillIn.length; i++) { %>
+                    <tr>
+                        <td><%=stillIn[i].name%></td>
+                        <td><%=stillIn[i].army%></td>
+                        <td><%=stillIn[i].navy%></td>
+                        <td><%=stillIn[i].moral%></td>
+                        <td><%=stillIn[i].total%></td>
+                    </tr>
+                <% } %>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        <h4><span style="color: #b30000">Eliminated countries: </span>
+<% if (eliminated.length === 1) { %>
+    <%= eliminated[0].name %>
+<% } else { %>
+    <% for (let t = 0; t < eliminated.length; t++) { %>
+        <%= eliminated[t].name %><% if (t < eliminated.length - 1) { %>,<% } %>
+    <% } %>
+<% } %></h4>
+        <form style="flex: 1; display: flex; flex-direction: column" action="/combatants" method="POST">
+            <div id="paraSelect">
+            
+                <p id="summary" style="flex: 1; font-family: Kumbh Sans; font-size: 1.2rem; margin: 0"><span style="font-weight: 600">This is the current distribution of points.</span> Power shifts and alliance loyalties have changed the world scene, casting a shadow of uncertainty over global affairs. Tensions are high. The geopolitical scene hums with anticipation. <%= topCountries[0].name%> and <%= topCountries[1].name%> are the most powerful nations, while <%=lowCountry[0].name%> is at the bottom. Who will find themselves at war next? You decide...</p>
+            
+                <div style="display: flex; flex-direction: row; background: linear-gradient(90deg, #d5dede 49.8%, black, #d5dede 50.2%); flex: 1">
+                    <div style="flex: 1">
+                        <h3 style="margin-top: 0">Belligerent 1</h3>
+                        <select name="option1">
+                            <% for (let n = 0; n < stillIn.length; n++) { %>
+                                <option name="dropOp"><%=stillIn[n].name%></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div style="margin: auto;">
+                        <p id="versus">V.</p>
+                    </div>
+                    <div style="flex: 1; text-align: end">
+                        <h3 style="margin-top: 0">Belligerent 2</h3>
+                        <select name="option2">
+                            <% for (let n = 0; n < stillIn.length; n++) { %>
+                                <option><%=stillIn[n].name%></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+            </div>
+<!--                <div style="flex-grow: 1"></div>-->
+                
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-bottom: 30px">
+                    <a style="text-decoration: none" class="button" href="javascript:history.go(-1)">&larr;</a>
+                    <button class="button" type="submit">&rarr;</button>
+                </div>
+            </form>
+        </div>
+    
+    
+    
+    <script>
+        async function homefunc() { //search box function
+            window.location.href = '/'; 
+        }
+    </script>
+</body>
+    <footer id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </footer>
+</html>

@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+#header {
+  text-align: center;
+  position: relative; /* Required for absolute positioning */
+}
+
+
+
+h1 {
+  margin: 0;
+/*    background-color: #f0f0f0;*/
+    background: linear-gradient(135deg, #d5dede 20%, #667579 20%);
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Flex grow to take up all available space */
+    margin-bottom: 30px;
+}
+
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+#topSpaceFill {
+    height: 10px;
+}
+
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+}
+
+/*
+.circle-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto; 
+}
+*/
+
+#countryCircContainer {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    grid-row-gap: 30px;
+}
+
+.circle {
+    width: 170px; 
+    height: 170px;
+    background-color: #a3aaaa; 
+    line-height: 170px; 
+    text-align: center; 
+    border-radius: 50%; 
+    font-size: 1.4rem;
+}
+
+.dropdown {
+    margin-top: 20px;
+    width: 170px;
+    height: 2rem;
+    font-size: 1rem;
+    font-family: Kumbh Sans;
+    border-radius: 20px;
+    border: 2px solid grey;
+    padding-left: 10px;
+}
+/*
+
+button {
+    font-family: Lemon Milk;
+    font-size: 1.1rem;
+    width: 200px;
+    height: 50px;
+    background-color: #5d6977;
+    border: none;
+    border-radius: 20px;
+    margin: auto;
+    margin-top:50px;
+}
+*/
+
+.button {
+    font-family: Lemon Milk;
+    font-size: 1.1rem;
+    width: 50px;
+    height: 50px;
+/*    background-color: #708090;*/
+    background-color: #B08D57;
+/*    border: none;*/
+    border: none;
+    border-radius: 30px;
+/*    margin: auto;*/
+    color: black;
+    text-align: center;
+    line-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button:hover {
+    background-color: #A17E45;
+}
+
+.buttonContainer {
+    margin-top:50px;
+    
+}
+
+/*
+.circle:nth-child(1) {
+    transform: rotate(-90deg) translate(200px) rotate(90deg);
+}
+.circle:nth-child(2) {
+    transform: rotate(-18deg) translate(200px) rotate(18deg);
+}
+.circle:nth-child(3) {
+    transform: rotate(54deg) translate(200px) rotate(-54deg);
+}
+.circle:nth-child(4) {
+    transform: rotate(126deg) translate(200px) rotate(-126deg);
+}
+.circle:nth-child(5) {
+    transform: rotate(198deg) translate(200px) rotate(-198deg);
+}
+*/
+
+
+
+
+@media only screen and (max-width: 420px) {
+    #countryCircContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .circle {
+        margin: auto;
+    }
+    h1 {
+        background: linear-gradient(135deg, #d5dede 10%, #667579 10%);
+    }
+    
+}
+

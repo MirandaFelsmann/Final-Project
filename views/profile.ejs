@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WW1 Game</title>
+    <link rel="stylesheet" href="/profilestyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    <div id="allContent">
+        <div id="mainContent">
+            <div id="topbar">
+                <ul id="nationList">
+                    <% nations.forEach(nation => { %>
+                        <li style="display: inline-block" hx-get="/country-details/<%=nation.name%>" hx-target="#bodyContent" hx-trigger="click" class="<%= nation.name %>"><%= nation.name %></li>
+                    <% }) %>
+                </ul>
+            </div>
+            <div id="bodyContent">
+                <p style="font-family: Kumbh Sans; margin: auto; text-align: center">Select a country to view its profile details</p>
+            </div>
+        </div>
+        <div style="display: flex; flex-grow: 1;"></div>
+    </div>
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script>
+        async function homefunc() { //search box function
+            window.location.href = '/'; 
+        }
+        // Add 'active' class to the clicked list item
+        document.getElementById('nationList').addEventListener('click', function(e) {
+            console.log("func")
+            const lis = document.querySelectorAll('#nationList li');
+            lis.forEach(li => li.classList.remove('active'));
+            if (e.target.tagName === 'LI') {
+                console.log("activated")
+                e.target.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

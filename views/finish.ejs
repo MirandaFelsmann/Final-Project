@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p><%= stillIn[0].name %> has emerged as the ultimate victor, with <%= stillIn[0].army %> army points, <%= stillIn[0].navy %> navy points, a morale factor of <%= stillIn[0].moral %>—clocking in at a total of <%= stillIn[0].total %> points. All other countries have been eliminated.</p>
+    <p>Want to play again? Hit the 'Reset' button to start over.</p>
+    
+    <form action="/reset" method="GET">
+        <button>RESET</button>
+    </form>
+</body>
+</html>

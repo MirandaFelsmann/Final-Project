@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <div id="header"></div>
+        <div id="spaceFill"></div>
+        <div id="mainContent">
+            <form id="submission form" action="/submit" method="POST">
+                <div id="colContent">
+                    <div id="left">
+                        <fieldset>
+                            <input id="country1Name" name="country1[name]" value="<%= option1 %>">
+                            <div><input id="army1" name="country1[stats][army]" value="<%=country1.army%>"></div>
+                            <div><input id="navy1" name="country1[stats][navy]" value="<%=country1.navy%>"></div>
+                            <div><input id="total1" name="country1[stats][total]" value="<%=country1.total%>"></div>
+                            <h3>Contracts</h3>
+                            <% for (let i = 0; i < countriesByOption[option1].length; i++) { %>
+                                <div class="contract">
+                                    Contract between <%=option1%> and <input type="text" name="country1[allies][Ally<%=i%>][name]" value="<%= countriesByOption[option1][i] %>">. 
+                                    <%= countriesByOption[option1][i] %> will provide 
+                                    <input id="armyFrom<%=i%>For1" name="country1[allies][Ally<%=i%>][army]" style="width: 60px" type="number" min="0" max="<%= countriesInOption1[i].army %>"> army and 
+                                    <% if (countryIsLandlocked === 'yes') { %>
+                                        <input id="navyFrom<%=i%>For1" name="country1[allies][Ally<%=i%>][navy]" style="width: 60px" type="number" value="0" readonly>
+                                    <% } else { %> 
+                                        <input id="navyFrom<%=i%>For1" name="country1[allies][Ally<%=i%>][navy]" style="width: 60px" type="number"  min="0" max="<%= countriesInOption1[i].navy %>">
+                                    <% } %>
+                                    navy 
+                                    points in return for 
+                                    <select id="inReturn" class="dropdown" name="Country1[allies][Ally<%=i%>][reward]">
+                                        <option selected="true"></option>
+                                        <option value="military">military points</option>
+                                        <option value="aid">future aid</option>
+                                    </select>.
+                                </div>
+                                <br>
+                            <% } %>
+                        </fieldset>
+                    </div>
+                    
+<!--
+                    <div id="left">
+                        <input id="header1" name="Country1[name]" value="<%= option1 %>">
+                        <div>
+                            <div class="stats">
+                                <div id="armyStats1">
+                                    <input id="army1" name="Country1[stats][army]" style="font-family: Lemon Milk" value="<%=country1.army%>">
+                                    <br>army
+                                </div>
+                                <div id="navyStats1">
+                                    <input id="navy1" name="Country1[stats][navy]" style="font-family: Lemon Milk" value="<%=country1.army%>">
+                                    <br>army
+                                </div>
+                                <div id="totalStats1">
+                                    <input id="total1" name="Country1[stats][total]" style="font-family: Lemon Milk" value="<%=country1.total%>">
+                                    <br>total
+                                </div>
+                            </div>
+                            <div id="contractsContent">
+                                <h3>Contracts</h3>
+                                <% for (let i = 0; i < countriesByOption[option1].length; i++) { %>
+                                    <div class="contract">
+                                        Contract between <%=option1%> and <input type="text" name="Country1[allies][<%=i%>][name]" value="<%= countriesByOption[option1][i] %>">. 
+                                        <%= countriesByOption[option1][i] %> will provide 
+                                        <input id="armyFrom<%=i%>For1" name="Country1[allies][<%=i%>][army]" style="width: 60px" type="number" min="0" max="<%= countriesInOption1[i].army %>"> army and 
+                                        <% if (countryIsLandlocked === 'yes') { %>
+                                            <input id="navyFrom<%=i%>For1" name="Country1[allies][<%=i%>][navy]" style="width: 60px" type="number" value="0" readonly>
+                                        <% } else { %> 
+                                            <input id="navyFrom<%=i%>For1" name="Country1[allies][<%=i%>][navy]" style="width: 60px" type="number"  min="0" max="<%= countriesInOption1[i].navy %>">
+                                        <% } %>
+                                        navy 
+                                        points in return for 
+                                        <select id="inReturn" class="dropdown" name="Country1[allies][<%=i%>][reward]">
+                                            <option selected="true"></option>
+                                            <option value="military">military points</option>
+                                            <option value="aid">future aid</option>
+                                        </select>.
+                                    </div>
+                                    <br>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+-->
+                    
+                    <div id="center"></div>
+                    
+                    <div id="right">
+                        <fieldset>
+                            <input id="country2Name" name="country2[name]" value="<%= option2 %>">
+                            <div><input id="army2" name="country2[stats][army]" value="<%=country2.army%>"></div>
+                            <div><input id="navy2" name="country2[stats][navy]" value="<%=country2.navy%>"></div>
+                            <div><input id="total2" name="country2[stats][total]" value="<%=country2.total%>"></div>
+                            <h3>Contracts</h3>
+                            <% for (let i = 0; i < countriesByOption[option2].length; i++) { %>
+                                <div class="contract">
+                                    Contract between <%=option2%> and <input type="text" name="country2[allies][Ally<%=i%>][name]" value="<%= countriesByOption[option2][i] %>">. 
+                                    <%= countriesByOption[option2][i] %> will provide 
+                                    <input id="armyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][army]" style="width: 60px" type="number" min="0" max="<%= countriesInOption2[i].army %>"> army and 
+                                    <% if (countryIsLandlocked === 'yes') { %>
+                                        <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number" value="0" readonly>
+                                    <% } else { %> 
+                                        <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number"  min="0" max="<%= countriesInOption2[i].navy %>">
+                                    <% } %>
+                                    navy 
+                                    points in return for 
+                                    <select id="inReturn" class="dropdown" name="Country2[allies][Ally<%=i%>][reward]">
+                                        <option selected="true"></option>
+                                        <option value="military">military points</option>
+                                        <option value="aid">future aid</option>
+                                    </select>.
+                                </div>
+                                <br>
+                            <% } %>
+                        </fieldset>
+                    </div>
+                    
+<!--
+                    <div id="right">
+                        <input id="header2" name="Country2[name]" value="<%= option2 %>">
+                        <div>
+                            <div class="stats">
+                                <div id="armyStats2">
+                                    <input id="army2" name="Country2[stats][army]" style="font-family: Lemon Milk" value="<%=country2.army%>">
+                                    <br>army
+                                </div>
+                                <div id="navyStats2">
+                                    <input id="navy2" name="Country2[stats][navy]" style="font-family: Lemon Milk" value="<%=country2.army%>">
+                                    <br>army
+                                </div>
+                                <div id="totalStats2">
+                                    <input id="total2" name="Country2[stats][total]" style="font-family: Lemon Milk" value="<%=country2.total%>">
+                                    <br>total
+                                </div>
+                            </div>
+                            <div id="contractsContent">
+                                <h3>Contracts</h3>
+                                <% for (let x = 0; x < countriesByOption[option2].length; x++) { %>
+                                    <div class="contract">
+                                        Contract between <%=option2%> and <input type="text" name="Country2[allies][<%=x%>][name]" value="<%= countriesByOption[option2][x] %>">. 
+                                        <%= countriesByOption[option2][x] %> will provide 
+                                        <input id="armyFrom<%=x%>For2" name="Country2[allies][<%=x%>][army]" style="width: 60px" type="number" min="0" max="<%= countriesInOption2[x].army %>"> army and 
+                                        <% if (countryIsLandlocked === 'yes') { %>
+                                            <input id="navyFrom<%=x%>For2" name="Country2[allies][<%=x%>][navy]" style="width: 60px" type="number" value="0" readonly>
+                                        <% } else { %> 
+                                            <input id="navyFrom<%=x%>For2" name="Country2[allies][<%=x%>][navy]" style="width: 60px" type="number"  min="0" max="<%= countriesInOption2[x].navy %>">
+                                        <% } %>
+                                        navy 
+                                        points in return for 
+                                        <select id="inReturn" class="dropdown" name="Country2[allies][<%=x%>][reward]">
+                                            <option selected="true"></option>
+                                            <option value="military">military points</option>
+                                            <option value="aid">future aid</option>
+                                        </select>.
+                                    </div>
+                                    <br>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+-->
+                </div>
+                <input type="hidden" id="country1Data" value="<%= JSON.stringify(country1) %>">
+                <input type="hidden" id="country2Data" value="<%= JSON.stringify(country2) %>">
+
+                
+                <button type="submit">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+    
+<!--
+   <form action="/submit" method="post">
+  <fieldset>
+    <legend>Country 1</legend>
+    <label for="country1Name">Country Name:</label>
+    <input type="text" id="country1Name" name="country1[name]">
+
+    <label for="country1Army">Army:</label>
+    <input type="number" id="country1Army" name="country1[stats][army]">
+    <label for="country1Navy">Navy:</label>
+    <input type="number" id="country1Navy" name="country1[stats][navy]">
+    <label for="country1Total">Total:</label>
+    <input type="number" id="country1Total" name="country1[stats][total]">
+
+    <div class="allies">
+      <div class="ally">
+        <label for="country1Ally1Name">Ally 1 Name:</label>
+        <input type="text" id="country1Ally1Name" name="country1[allies][Ally1][name]">
+        <label for="country1Ally1Donate">Ally 1 Donation:</label>
+        <input type="number" id="country1Ally1Donate" name="country1[allies][Ally1][donate]">
+        <label for="country1Ally1Reward">Ally 1 Reward:</label>
+        <input type="text" id="country1Ally1Reward" name="country1[allies][Ally1][reward]">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Country 2</legend>
+    <label for="country2Name">Country Name:</label>
+    <input type="text" id="country2Name" name="country2[name]">
+
+    <label for="country2Army">Army:</label>
+    <input type="number" id="country2Army" name="country2[stats][army]">
+    <label for="country2Navy">Navy:</label>
+    <input type="number" id="country2Navy" name="country2[stats][navy]">
+    <label for="country2Total">Total:</label>
+    <input type="number" id="country2Total" name="country2[stats][total]">
+
+    <div class="allies">
+      <div class="ally">
+        <label for="country2Ally1Name">Ally 1 Name:</label>
+        <input type="text" id="country2Ally1Name" name="country2[allies][Ally1][name]">
+        <label for="country2Ally1Donate">Ally 1 Donation:</label>
+        <input type="number" id="country2Ally1Donate" name="country2[allies][Ally1][donate]">
+        <label for="country2Ally1Reward">Ally 1 Reward:</label>
+        <input type="text" id="country2Ally1Reward" name="country2[allies][Ally1][reward]">
+      </div>
+    </div>
+  </fieldset>
+
+  <input type="submit" value="Submit">
+</form>
+-->
+
+   
+   
+   
+    <div id="footer"></div>
+    <script src="/alliancescript.js"></script>
+</body>
+</html>

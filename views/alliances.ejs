@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alliances</title>
+    <link rel="stylesheet" href="/alliancestyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    
+    <div id="content">
+        <div id="header"></div>
+        <div id="spaceFill"></div>
+        <div id="mainContent">
+            <form id="submissionForm" action="/submit" method="POST">
+                <div id="colContent">
+                    <div id="left">
+                        <fieldset>
+                            <input class="countryHeader" id="country1Name" name="country1[name]" value="<%= option1 %>">
+                            <h2 class="viewCountryHeader"><%= option1 %></h2>
+                            <div class="stats">
+                                <div><input name="country1[stats][army]" value="<%=country1.army%>"><span id="army1"><%=country1.army%></span><br>army</div>
+                                <div><input name="country1[stats][navy]" value="<%=country1.navy%>"><span id="navy1"><%=country1.navy%></span><br>navy</div>
+                                <div><input name="country1[stats][total]" value="<%=country1.total%>"><span id="total1"><%=country1.total%></span><br>total</div>
+                            </div>
+                            
+                            <h3 class="contractsHeader">Alliance Contracts</h3>
+                            <% for (let i = 0; i < countriesByOption[option1].length; i++) { %>
+                                <div class="contract">
+                                    Contract between <%=option1%> and <input type="text" name="country1[allies][Ally<%=i%>][name]" value="<%= countriesByOption[option1][i] %>"><%= countriesByOption[option1][i] %>. 
+                                    <%= countriesByOption[option1][i] %> will provide 
+                                    <input id="armyFrom<%=i%>For1" name="country1[allies][Ally<%=i%>][army]" style="width: 60px" type="number" value="0" min="0" max="<%= countriesInOption1[i].army %>"> army and 
+                                    
+
+                                    <% if (countryIsLandlocked === 'yes') { %>
+                                        <input id="navyFrom<%=i%>For1" name="country1[allies][Ally<%=i%>][navy]" style="width: 60px" type="number" value="0" readonly>
+                                    <% } else { %> 
+                                        <input id="navyFrom<%=i%>For1" name="country1[allies][Ally<%=i%>][navy]" style="width: 60px" type="number"  value="0" min="0" max="<%= countriesInOption1[i].navy %>">
+                                    <% } %>
+
+                                    navy 
+                                    points in return for 
+                                    <select id="inReturn" class="dropdown" name="country1[allies][Ally<%=i%>][reward]">
+                                        <option selected="true"></option>
+                                        <option value="military">military points</option>
+                                        <option value="aid">future aid</option>
+                                    </select>.
+                                </div>
+                                <br>
+                            <% } %>
+                        </fieldset>
+                    </div>
+                    
+
+                    
+                    <div id="center"></div>
+                    
+                    <div id="right">
+                        <fieldset>
+                            <input class="countryHeader" id="country2Name" name="country2[name]" value="<%= option2 %>">
+                            <h2 class="viewCountryHeader2"><%= option2 %></h2>
+                            <div class="stats">
+                                <div><input name="country2[stats][army]" value="<%=country2.army%>"><span id="army2"><%=country2.army%></span><br>army</div>
+                                <div><input name="country2[stats][navy]" value="<%=country2.navy%>"><span id="navy2"><%=country2.navy%></span><br>navy</div>
+                                <div><input name="country2[stats][total]" value="<%=country2.total%>"><span id="total2"><%=country2.total%></span><br>total</div>
+                            </div>
+                            <div style="display: flex; flex-direction: row; justify-content: flex-end">
+                                                            <h3 class="contractsHeader2">Alliance Contracts</h3>
+
+                            </div>
+                            <% for (let i = 0; i < countriesByOption[option2].length; i++) { %>
+                                <div class="contract">
+                                    Contract between <%=option2%> and <input type="text" name="country2[allies][Ally<%=i%>][name]" value="<%= countriesByOption[option2][i] %>"><%= countriesByOption[option2][i] %>. 
+                                    <%= countriesByOption[option2][i] %> will provide 
+                                    <input id="armyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][army]" style="width: 60px" type="number" value="0" min="0" max="<%= countriesInOption2[i].army %>"> army and 
+                                    <% if (countryIsLandlocked === 'yes') { %>
+                                        <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number" value="0" readonly>
+                                    <% } else { %> 
+                                        <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number"  min="0" max="<%= countriesInOption2[i].navy %>">
+                                    <% } %>
+                                    navy 
+                                    points in return for 
+                                    <select id="inReturn" class="dropdown" name="country2[allies][Ally<%=i%>][reward]">
+                                        <option selected="true"></option>
+                                        <option value="military">military points</option>
+                                        <option value="aid">future aid</option>
+                                    </select>.
+                                </div>
+                                <br>
+                            <% } %>
+                        </fieldset>
+                    </div>
+                    
+
+                </div>
+                <input type="hidden" id="country1Data" value="<%= JSON.stringify(country1) %>">
+                <input type="hidden" id="country2Data" value="<%= JSON.stringify(country2) %>">
+
+                <div style="display: flex; justify-content: space-between;">
+                        <a style="text-decoration: none" class="button" href="javascript:history.go(-1)">&larr;</a>
+                        <button class="button" type="submit">&rarr;</button>
+                    </div>
+                
+            </form>
+        </div>
+    </div>
+    
+
+
+   
+   
+   
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    <script src="/alliancescript.js"></script>
+</body>
+</html>

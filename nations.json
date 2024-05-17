@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Andros",
+    "army": 700,
+    "navy": 600,
+    "moral": 240,
+    "total": 1540,
+    "isLandlocked": false,
+    "currAllies": [],
+    "totalArmy": 700,
+    "totalNavy": 600,
+    "totalTotal": 1540,
+    "description": "Andros lies along the southern coast. Boasting both a respectable army and navy, Andros sits in the upper ranks of the seven nations. Its greatest threat comes from the neighboring Bismania, whose military outweighs Andros' by a sizable 200 points. Andros has a strong mining industry, exporting a wide variety of quarried stones and ore. Weather is temperate, with occasional hot spells.",
+    "originalStats": {
+        "army": 700,
+        "navy": 600,
+        "moral": 240,
+        "total": 1540
+    }
+  },
+  {
+    "name": "Atweena",
+    "army": 1000,
+    "navy": 0,
+    "moral": 240,
+    "total": 1240,
+    "isLandlocked": true,
+    "currAllies": [],
+    "totalArmy": 1000,
+    "totalNavy": 0,
+    "totalTotal": 1240,
+    "description": "Atweena is a landlocked nation situated at the heart of the mainland. Surrounded by countries which can quickly turn into foes, Atweena's military may not be enough to stand against the might of every possible opponent. At only 1240 points, Atweena is in the shadow of the power of nations like Bismania and Andros. Furthermore, a brewing conflict with Nurovia has the Atweenan military on edge...",
+    "originalStats": {
+        "army": 1000,
+        "navy": 0,
+        "moral": 240,
+        "total": 1240
+    }
+  },
+  {
+    "name": "Bismania",
+    "army": 800,
+    "navy": 700,
+    "moral": 240,
+    "total": 1740,
+    "isLandlocked": false,
+    "currAllies": [],
+    "totalArmy": 800,
+    "totalNavy": 700,
+    "totalTotal": 1740,
+    "description": "Bismania claims the southwest corner of the mainland. At 1740 points, Bismania boasts the largest military power of all mainland countries. Bismania has a strong culture of self-sufficiency and exceptionalism, which is reflected in the practice of required military service. The country's leading military might has secured Bismania a guaranteed following of desperate allies.",
+    "originalStats": {
+        "army": 800,
+        "navy": 700,
+        "moral": 240,
+        "total": 1740
+    }
+  },
+  {
+    "name": "Bontus",
+    "army": 460,
+    "navy": 400,
+    "moral": 240,
+    "total": 1100,
+    "isLandlocked": false,
+    "currAllies": [],
+    "totalArmy": 460,
+    "totalNavy": 400,
+    "totalTotal": 1100,
+    "description": "Dominating the southeast region of the mainland, Bontus' land area is far more imposing than its military, which comprises a meager 1100 points, the lowest in the mainland. Bontus has adopted a policy of non-interventionism and neutrality in order to avoid attracting the hostile attention of its more powerful neighbors; but power-hungry rulers may not stay true to these values if war should arise...",
+    "originalStats": {
+        "army": 460,
+        "navy": 400,
+        "moral": 240,
+        "total": 1100
+    }
+  },
+  {
+    "name": "Egrama",
+    "army": 520,
+    "navy": 400,
+    "moral": 240,
+    "total": 1160,
+    "isLandlocked": false,
+    "currAllies": [],
+    "totalArmy": 520,
+    "totalNavy": 400,
+    "totalTotal": 1160,
+    "description": "Egrama sprawls along the northern coast. Its winters are cold; its people colder. Egraman society stresses the importance of a community working for the success of the entire nation, while government sentiments have created a culture of skeptism towards other countries. Military service is popular and honorable, but the small population—caused, in part, by the extreme clime—have put a ceiling on the size of the military force.",
+    "originalStats": {
+        "army": 520,
+        "navy": 400,
+        "moral": 240,
+        "total": 1160
+    }
+  },
+  {
+    "name": "Galbion",
+    "army": 500,
+    "navy": 1000,
+    "moral": 240,
+    "total": 1740,
+    "isLandlocked": false,
+    "currAllies": [],
+    "totalArmy": 500,
+    "totalNavy": 1000,
+    "totalTotal": 1740,
+    "description": "Galbion is an island nation, separated from the mainland by a narrow strait. With a strong army and a stronger navy—necessary, to defend its miles of coastline—Galbion is powerful than every mainland nation except Bismania. Galbion's biggest exports are textile goods, machinery products, and shipbuilding equipment, reflecting its strong technological industry and military capabilities.",
+    "originalStats": {
+        "army": 500,
+        "navy": 1000,
+        "moral": 240,
+        "total": 1740
+    }
+  },
+  {
+    "name": "Nurovia",
+    "army": 500,
+    "navy": 500,
+    "moral": 240,
+    "total": 1240,
+    "isLandlocked": false,
+    "currAllies": [],
+    "totalArmy": 500,
+    "totalNavy": 500,
+    "totalTotal": 1240,
+    "description": "Claiming the northwest stretch of the mainland, Nurovia is a large nation with a rich history of art and literature. However, this history is primarily concentrated in the country's urban centers, while the more rural regions offer a backbone of metallurgical industry, timber trade, and grain production to the economy. Nurovia has a modest military, with equal army and navy capabilities; and tensions are rising at the southeast border...",
+    "originalStats": {
+        "army": 500,
+        "navy": 500,
+        "moral": 240,
+        "total": 1240
+    }
+  }
+]

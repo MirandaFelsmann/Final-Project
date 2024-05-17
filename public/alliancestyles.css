@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+
+#topSpaceFill {
+    height: 10px;
+}
+
+#content {
+    padding: 30px 30px 0px 30px;
+/*    padding-top: 30px;*/
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Flex grow to take up all available space */
+/*    margin-bottom: 30px;*/
+}
+
+#mainContent {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#mainContent form {
+/*    height: inherit;*/
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+#colContent {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#left, #right {
+    flex: 1;
+}
+
+.countryHeader {
+/*
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Lemon Milk;
+*/
+    display: none;
+}
+
+.viewCountryHeader {
+/*
+    background-color: #354860;
+    border-bottom-right-radius: 30px;
+*/
+    background: linear-gradient(135deg, #354860 90%, #d5dede 90%);
+    color: lightgrey;
+}
+
+.contractsHeader {
+    background-color: #667579;
+/*    text-align: end;*/
+    padding-right: 50px;
+    width: fit-content;
+/*    border-bottom-right-radius: 30px;*/
+    background: linear-gradient(135deg, #667579 90%, #d5dede 90%);
+    padding-left: 5px;
+}
+
+.viewCountryHeader2 {
+/*
+    background-color: #354860;
+    border-bottom-left-radius: 30px;
+*/
+    background: linear-gradient(45deg, #d5dede 10%, #354860 10%);
+    color: lightgrey;
+}
+
+.contractsHeader2 {
+    background-color: #667579;
+    text-align: end;
+    padding-left: 50px;
+    width: fit-content;
+/*    border-bottom-left-radius: 30px;*/
+    background: linear-gradient(45deg, #d5dede 10%, #667579 10%);
+    padding-right: 5px;
+}
+
+h2 {
+    font-family: Lemon Milk;
+    text-align: center;
+}
+
+.stats {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    font-family: Kumbh Sans;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+.stats div {
+    text-align: center;
+}
+
+.stats div input {
+/*
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+*/
+    display: none;
+}
+
+#army1, #navy1, #total1, #army2, #navy2, #total2 {
+    font-family: Lemon Milk;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 50%;
+    text-align: center;
+    padding: 0;
+    margin: 0;  
+}
+
+/*
+#country1Name {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+*/
+
+.contract {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    line-height: 1.5rem;
+    text-align: justify;
+    font-family: Kumbh Sans;
+}
+
+.contract input[type="text"] {
+    display: none;
+}
+
+.contract input[type="number"] {
+    font-size: 0.9rem;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.dropdown {
+    width: 130px;
+    font-size: 0.9rem;
+    font-family: Kumbh Sans;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+#left fieldset {
+    border: none;
+    border-right: 2px solid grey;
+    height: 95%;
+}
+
+#right fieldset {
+    border: none;
+    border-left: 2px solid grey;
+    height: 95%;
+}
+
+#mainContent form button, .button {
+    font-family: Lemon Milk;
+    font-size: 1.1rem;
+    width: 50px;
+    height: 50px;
+    /*    background-color: #708090;*/
+    background-color: #B08D57;
+/*    border: none;*/
+    border: none;
+    border-radius: 30px;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#mainContent form button:hover, .button:hover {
+    background-color: #A17E45;
+}
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}
+
+
+@media only screen and (max-width: 575px) {
+    #colContent {
+        display: flex;
+        flex-direction: column;
+        grid-row-gap: 3px;
+    }
+    #left fieldset {
+        border-bottom: 2px solid grey;
+    }
+
+    #right fieldset {
+        border-top: 2px solid grey;
+        margin-bottom: 10px;
+    }
+
+
+}

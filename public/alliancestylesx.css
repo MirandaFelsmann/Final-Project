@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Flex grow to take up all available space */
+/*    margin-bottom: 30px;*/
+}
+
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+}
+
+#topSpaceFill {
+    height: 10px;
+}
+
+#stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+#armyStats1, #navyStats1, #totalStats1, #armyStats2, #navyStats2, #totalStats2 {
+    text-align: center;
+}
+
+#mainCols {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    font-family: Kumbh Sans;
+/*    padding: 30px 30px 30px 30px;*/
+    padding-bottom: 20px;
+    flex-grow: 1;
+}
+
+h2 {
+    font-family: Lemon Milk;
+    text-align: center;
+}
+
+#leftCol {
+    flex: 5;
+    margin-top: 0px;
+    display: flex; flex-direction: column; 
+}
+
+#centerDiv {
+    width: 3px;
+    height: auto;
+    background-color: grey;
+/*    flex: 1;*/
+}
+
+#rightCol {
+    flex: 5;
+}
+
+.contract {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 15px;
+    line-height: 1.5rem;
+    text-align: justify;
+}
+
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+}
+
+/*
+.circle-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto; 
+}
+*/
+/*
+
+#countryCircContainer {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    grid-row-gap: 30px;
+}
+
+.circle {
+    width: 170px; 
+    height: 170px;
+    background-color: #a3aaaa; 
+    line-height: 170px; 
+    text-align: center; 
+    border-radius: 50%; 
+    font-size: 1.4rem;
+}
+*/
+
+.dropdown {
+/*    margin-top: 20px;*/
+    width: 130px;
+    font-size: 0.9rem;
+    font-family: Kumbh Sans;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+input[type="number"] {
+    font-size: 0.9rem;
+    font-family: Kumbh Sans;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+/*
+
+button {
+    font-family: Lemon Milk;
+    font-size: 1.1rem;
+    width: 200px;
+    height: 50px;
+    background-color: #5d6977;
+    border: none;
+    border-radius: 20px;
+    margin: auto;
+    margin-top:50px;
+}
+*/
+
+.button {
+    font-family: Lemon Milk;
+    font-size: 1.1rem;
+    width: 170px;
+    height: 50px;
+    background-color: #5d6977;
+    border: none;
+    border-radius: 20px;
+/*    margin: auto;*/
+    margin-top:50px;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+}
+
+/*
+.circle:nth-child(1) {
+    transform: rotate(-90deg) translate(200px) rotate(90deg);
+}
+.circle:nth-child(2) {
+    transform: rotate(-18deg) translate(200px) rotate(18deg);
+}
+.circle:nth-child(3) {
+    transform: rotate(54deg) translate(200px) rotate(-54deg);
+}
+.circle:nth-child(4) {
+    transform: rotate(126deg) translate(200px) rotate(-126deg);
+}
+.circle:nth-child(5) {
+    transform: rotate(198deg) translate(200px) rotate(-198deg);
+}
+*/
+
+/*
+
+@media only screen and (max-width: 475px) {
+    #countryCircContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .circle {
+        margin: auto;
+    }
+}
+*/

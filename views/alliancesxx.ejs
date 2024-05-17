@@ -1,0 +1,107 @@
+new form structure
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WW1 Game</title>
+    <link rel="stylesheet" href="/alliancestylesx.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content">
+        <div id="headerLinks">
+            <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000" onclick="homefunc()">WAR.</p>
+            <p style="color: grey">about</p>
+            <p style="color: grey">country profiles</p>
+        </div>
+        <div id="topSpaceFill"></div>
+        <form action="/results" method="POST" style="display: flex; flex-direction: column; padding: 30px 30px 30px 30px; flex-grow: 1">
+               <div id="mainCols">
+                <div id="leftCol">
+                    <h2 style="margin-top: 0px"><%= option1 %></h2>
+                    <div>
+                        <div id="stats">
+                            <div id="armyStats1"><span id="army1" style="font-family: Lemon Milk"><%=country1.army%></span><br>army</div>
+                            <div id="navyStats1"><span id="navy1" style="font-family: Lemon Milk"><%=country1.navy%></span><br>navy</div>
+                            <div id="totalStats1"><span id="total1" style="font-family: Lemon Milk"><%=country1.total%></span><br>total</div>
+                        </div>
+                        <div id="contractsContent">
+                            <h3>ALLIANCE CONTRACTS</h3>
+                            <% for (let i = 0; i < countriesByOption[option1].length; i++) { %>
+                                <div class="contract">
+                                    Contract between <%=option1%> and <%= countriesByOption[option1][i] %>. 
+                                    <%= countriesByOption[option1][i] %> will provide 
+                                    <input id="armyFrom<%=i%>For1" style="width: 60px" type="number" name="army" min="0" max="<%= countriesInOption1[i].army %>"> army and 
+                                    <% if (countryIsLandlocked === 'yes') { %>
+                                        <input id="navyFrom<%=i%>For1" style="width: 60px" type="number" name="navy" value="0" readonly>
+                                    <% } else { %> 
+                                        <input id="navyFrom<%=i%>For1" style="width: 60px" type="number" name="navy" min="0" max="<%= countriesInOption1[i].navy %>">
+                                    <% } %>
+                                    navy 
+                                    points in return for 
+                                    <select id="inReturn" class="dropdown" name="<%= countriesByOption[option1][i] %>">
+                                        <option selected="true"></option>
+                                        <option value="military">military points</option>
+                                        <option value="aid">future aid</option>
+                                    </select>.
+                                </div>
+                                <br>
+                            <% } %>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="centerDiv"></div>
+                <div id="rightCol">
+                    <h2 style="margin-top: 0px"><%= option2 %></h2>
+                    <div>
+                        <div id="stats">
+                            <div id="armyStats2"><span id="army2" style="font-family: Lemon Milk"><%=country2.army%></span><br>army</div>
+                            <div id="navyStats2"><span id="navy2" style="font-family: Lemon Milk"><%=country2.navy%></span><br>navy</div>
+                            <div id="totalStats2"><span id="total2" style="font-family: Lemon Milk"><%=country2.total%></span><br>total</div>
+                        </div>
+                        <div id="contractsContent">
+                            <h3>ALLIANCE CONTRACTS</h3>
+                            <% for (let x = 0; x < countriesByOption[option2].length; x++) { %>
+                                <div class="contract">
+                                    Contract between <%=option2%> and <%= countriesByOption[option2][x] %>. 
+                                    <%= countriesByOption[option2][x] %> will provide 
+                                    <input id="armyFrom<%=x%>For2" style="width: 60px" type="number" name="army" min="0" max="<%= countriesInOption2[x].army %>"> army and 
+                                    <% if (countryIsLandlocked === 'yes') { %>
+                                        <input id="navyFrom<%=x%>For2" style="width: 60px" type="number" name="navy" value="0" readonly>
+                                    <% } else { %> 
+                                        <input id="navyFrom<%=x%>For2" style="width: 60px" type="number" name="navy" min="0" max="<%= countriesInOption2[x].navy %>">
+                                    <% } %>
+                                    navy 
+                                    points in return for 
+                                    <select id="inReturn" class="dropdown" name="<%= countriesByOption[option2][x] %>">
+                                        <option selected="true"></option>
+                                        <option value="military">military points</option>
+                                        <option value="aid">future aid</option>
+                                    </select>.
+                                </div>
+                                <br>
+                            <% } %>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <button type="submit">Next</button>
+        </form>
+
+        
+<!--        <div style="display: flex; flex-grow: 1;"></div>-->
+    </div>
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    <script src="/alliancescript.js"></script>
+</body>
+</html>
+

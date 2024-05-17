@@ -1,0 +1,147 @@
+body {
+    margin: 0px;
+    font-family: Lemon Milk;
+    background-color: #d5dede;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+
+#topSpaceFill {
+/*    height: 100px;*/
+    height: 10px;
+}
+
+#allContent {
+    margin-top: 30px;
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#nationList {
+    padding: 0px 30px 0px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-row-gap: 20px;
+/*    height: 0.5rem;*/
+    line-height: 0.5rem;
+    font-size: 1.3rem;
+/*    background-color: #a7aeae;*/
+}
+
+#topbar li {
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #a7aeae;
+}
+
+#topbar li.active {
+    background-color: #b30000;
+}
+
+#mainContent {
+/*    min-height: calc(100vh - 82px);*/
+}
+
+#bodyContent {
+    display: flex;
+    flex-direction: row;
+    padding: 50px 70px 70px 70px;
+    column-gap: 40px;
+/*    width: 950px;*/
+    margin: auto;
+}
+
+#textInfo {
+    flex: 1;
+    width: 70%;
+    margin: auto;
+}
+#img {
+    flex: 1;
+    width: 100%; 
+    height: 100%;
+}
+
+#stats1 {
+    display: flex; 
+    flex-direction: row; 
+    column-gap: 25px;
+}
+
+#stats2 {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #nationList {
+        font-size: 1rem;
+    /*    background-color: #a7aeae;*/
+    }
+}
+
+@media only screen and (max-width: 900px) {
+/*
+    #textInfo {
+        flex: 3;
+        color: red;
+    }
+    #img {
+        flex: 4;
+    }
+    #bodyContent {
+    }
+    #stats2 {
+        display: flex; 
+        flex-direction: column;
+    }
+    #description1, #stats1 {
+        display: none;
+    }
+*/
+}
+
+@media only screen and (max-width: 860px) {
+    #img {
+        width: 70%;
+        margin: auto;
+    }
+    #bodyContent {
+        flex-direction: column;
+    }
+    #stats1 {
+        justify-content: center;
+    }
+}
+
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+}
