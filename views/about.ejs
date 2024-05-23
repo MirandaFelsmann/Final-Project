@@ -3,30 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    <link rel="stylesheet" href="/aboutstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>War. is a simulation game based off of World War I. This game pits country against country in a struggle for power across a vast region. Alliances, negotiations, and distribution of the spoils of victory are all essential to staying alive in the game. But beware...not even alliances are safe from sabotage.</p>
-    
-    <div style="display: flex; flex-direction: row">
-        <img src="/images/jcut.JPG" style="flex: 1; width: 100%">
-        <p style="flex: 1">This game was designed by the late Jamie Moore, a professor of history at The Citadel in South Carolina. Ms. Cutler has run this game for 10th grade history students for the last few years.</p>
+    <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
     </div>
+    <div id="topSpaceFill"></div>
     
-    <div style="display: flex">
-        <img src="/images/miranda2.JPG" style="flex: 1; width: 100%">
-        <div style="flex: 1">
-            <p>Meet the Web Dev</p>
-            <p>This game was moved online in order to try and streamline the game process and rules. This effort was my culminating project for my enrollment in the 2023–2024 FullStack class. I've worked closely with the history department on several occasions, including to run the game for this year's 10th graders, and so this project felt like a natural choice.</p>
+<!--
+    <div id="content">
+        <h1></h1>
+        <div class="summary">
+            <img src="/images/ww1about.avif">
+            <div>
+                <p style="font-family: Kumbh Sans; margin: 0;"><span style="color: #b30000; font-family: Lemon Milk;">War.</span> is a simulation game based off of World War I. This game pits country against country in a struggle for power across a vast region. Alliances, negotiations, and distribution of the spoils of victory are all essential to staying alive in the game. But beware...not even alliances are safe from sabotage.</p>
+                <p style="font-family: Kumbh Sans; margin: 0;"><span style="font-weight: 600">This game</span> was designed by the late Jamie Moore, a professor of history at The Citadel in South Carolina. Ms. Cutler has run this game for 10th grade history students for the last few years.</p>
+            </div>
+        </div>
+        
+    
+    <div style="display: flex; margin-top: 15px; border-top: 2px solid black; padding: 30px 0px 0px 0px; column-gap: 40px">
+        <div style="flex: 1; font-size: 1.1rem">
+            <p style="font-weight: 600">Meet the Web Dev</p>
+            <p style="font-family: Kumbh Sans">I'm Miranda Felsmann, a current junior at Westridge. This effort was my culminating project for my enrollment in the 2023–2024 FullStack class. This game was moved online in order to try and streamline the game process and rules. I've worked closely with the history department on several occasions, including to run the game for this year's 10th graders, and so this project felt like a natural choice.</p>
+        </div>
+        <img src="/images/miranda1.jpeg" style="flex: 1; width: 100%; height: 100%; border-radius: 20px; border: 1px solid black">
+    </div>
+    </div>
+-->
+   
+   
+    <div>
+        
+        <div style="max-width: 900px; padding: 30px 40px 30px 40px; margin: auto">
+            <h1>About the Game</h1>
+            <div class="summary">
+                <img src="/images/ww1about.avif">
+                <div>
+                    <p style="font-family: Kumbh Sans; margin: 0;"><span style="color: #b30000; font-family: Lemon Milk;">War.</span> is a simulation game based off of World War I. This game pits country against country in a struggle for power across a vast region. Alliances, negotiations, and distribution of the spoils of victory are all essential to staying alive in the game. But beware...not even alliances are safe from sabotage.</p>
+                    <p style="font-family: Kumbh Sans; margin: 0;"><span style="font-weight: 600">This game</span> was designed by the late Jamie Moore, a professor of history at The Citadel in South Carolina. Ms. Cutler has run this game for 10th grade history students for the last few years.</p>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #c7cece">
+            <div style="display: flex; column-gap: 40px; max-width: 900px; padding: 30px 40px 30px 40px; margin: auto">
+                <div style="flex: 3; font-size: 1.1rem">
+                    <p style="font-weight: 600">Meet the Web Dev</p>
+                    <p style="font-family: Kumbh Sans"><span style="font-size: 1.5rem; font-weight: 600; font-style: italic; font-family: Lemon Milk">Hi, I'm Miranda</span>—a current junior at Westridge. This effort was my culminating project for my enrollment in the 2023–2024 FullStack class. This game was moved online in order to try and streamline the game process and rules. I've worked closely with the history department on several occasions, including to run the game for this year's 10th graders, and so this project felt like a natural choice.</p>
+                </div>
+                <div style="flex: 2; width: 100%; height: 100%;">
+                    <img src="/images/miranda1.jpeg" style="width: 100%; height: 100%; border-radius: 20px; border: 1px solid black;">
+                    <p style="background-color: #354860; font-family: Kumbh Sans; color: #B08D57; padding: 8px; border-radius: 10px; text-align: center">mf25464@westridge.org</p>
+                    <p style="background-color: #354860; font-family: Kumbh Sans; color: #B08D57; padding: 8px; border-radius: 10px; text-align: center">Pasadena, CA</p>
+                </div>
+            </div>
         </div>
     </div>
     
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
     
-    
-    
-   
-    
-   
-    
-    
+    <script>
+        async function homefunc() { //search box function
+            window.location.href = '/'; 
+        }
+    </script>
 </body>
 </html>
+
+

@@ -20,12 +20,98 @@ body {
 /*    border-radius: 20px;*/
 /*    position: fixed;*/
     z-index: 1000;
-    border-bottom: 1px solid grey;
+        border-bottom: 1px solid grey;
+
     margin-top: 10px;
     padding-bottom: 5px;
+    position: relative; /* Added for dropdown absolute positioning */
+}
+/*
+#headerLinks::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+}
+*/
 
+.header-button {
+    color: grey;
+    border: none;
+    font-family: Lemon Milk;
+    font-size: 1rem;
+    background-color: transparent;
 }
 
+
+.header-logo {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 22px;
+    color: #b30000;
+    margin-left: 19px;
+}
+
+
+.logo-image {
+    height: 100%;
+}
+
+.menu-container {
+    position: absolute;
+    padding-right: 30px;
+    right: 0px;
+}
+
+
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #d5dede;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+    margin-right: 30px;
+    width: 150px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top: 2px solid #354860;
+}
+/*
+
+.dropdown-menu::before {
+content: "";
+    display: block;
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    border-bottom: 2px solid grey;
+}
+*/
+.dropdown-menu a {
+    color: #354860;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    font-family: Kumbh Sans;
+    text-align: end;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
 #topSpaceFill {
 /*    height: 100px;*/
     height: 10px;
@@ -78,6 +164,12 @@ body {
     min-width: 167px;
     box-shadow: 0px 0px 20px black;
 }
+
+#STARTbutton:hover {
+    background-color: #253851;
+}
+
+
 
 .dividingBar {
     height: 3px;

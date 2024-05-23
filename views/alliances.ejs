@@ -88,7 +88,7 @@
                                     <% if (countryIsLandlocked === 'yes') { %>
                                         <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number" value="0" readonly>
                                     <% } else { %> 
-                                        <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number"  min="0" max="<%= countriesInOption2[i].navy %>">
+                                        <input id="navyFrom<%=i%>For2" name="country2[allies][Ally<%=i%>][navy]" style="width: 60px" type="number"  value="0" min="0" max="<%= countriesInOption2[i].navy %>">
                                     <% } %>
                                     navy 
                                     points in return for 
@@ -117,9 +117,6 @@
         </div>
     </div>
     
-
-
-   
    
    
     <div id="footerDiv">

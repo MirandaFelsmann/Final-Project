@@ -1,0 +1,89 @@
+body {
+    margin: 0px;
+    font-family: Lemon Milk;
+    background-color: #d5dede;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+
+#topSpaceFill {
+/*    height: 100px;*/
+    height: 10px;
+}
+
+#content {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 40px 30px 40px;
+    
+/*    margin: 30px 130px 30px 130px;*/
+/*
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+*/
+/*
+    padding-right: 40px;
+    padding-left: 40px;
+*/
+}
+
+.summary {
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+}
+
+.summary img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.summary div {
+    flex: 2;
+    font-size: 1.1rem;
+    margin: auto;
+}
+
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+}
+
+@media only screen and (max-width: 630px) {
+    .summary {
+        flex-direction: column;
+    }
+    .summary img {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,130 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stalemate</title>
+    <link rel="stylesheet" href="/stalematestyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    
+    <div id="content"></div>
+    <h2>The battle between <%=country1%> and <%=country2%> ended in a stalemate. Would you like to go back and choose your allies again, or would you like to proceed to the next round of battle?</h2>
+    <form action="/combatants" method="POST">
+        <input type="hidden" name="option1" id="option1" value="<%=country1%>">
+        <input type="hidden" name="option2" id="option2" value="<%=country2%>">
+        <button>Go Back</button>
+    </form>
+    <form action="/new-round" method="POST">
+        <input type="hidden" name="origin" id="origin" value="stalemate">
+        <button>Next Round</button>
+    </form>
+    
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finish</title>
+    <link rel="stylesheet" href="/stalematestyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <style>
+    
+        .test {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .test::before {
+            content: "";
+            position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+            background: linear-gradient(90deg, #b30000 70px, #354860 70px);
+            transform: skewX(-30deg); /* Skew the pseudo-element */
+        transform-origin: top right; /* Origin of the skew transformation */
+            
+        }
+</style>
+</head>
+<body>
+    <div id="headerLinks">
+          <form action="/about" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
+          </form>
+          <p style="font-size: 25px; font-weight: 700; margin-top:22px; color: #b30000; height: 100%; margin-left: 19px"><a  onclick="homefunc()"><img src="/images/logo.svg" style="height: 100%"></a></p>
+          <form action="/profile" method="GET">
+              <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
+          </form>
+    </div>
+    <div id="topSpaceFill"></div>
+    
+    <div id="content">
+        <div>
+            <h3 style="font-weight: 400; text-align: center; width: 70vw; margin: auto">The battle between <%=country1%> and <%=country2%> ended in a stalemate. Would you like to go back and choose your allies again, or would you like to proceed to the next round of battle?</h3>
+        </div>
+        
+        <div class="test" style="padding: 10px; color: lightgrey; margin: auto; margin-top: 70px; margin-bottom: 30px; min-width: 300px;">
+           <svg style="z-index: 1000; min-width: 24px" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="white"><path d="M20.0429 21H3.95705C2.41902 21 1.45658 19.3364 2.22324 18.0031L10.2662 4.01533C11.0352 2.67792 12.9648 2.67791 13.7338 4.01532L21.7768 18.0031C22.5434 19.3364 21.581 21 20.0429 21Z" stroke="white" stroke-width="1.5" stroke-linecap="round"></path><path d="M12 9V13" stroke="white" stroke-width="1.5" stroke-linecap="round"></path><path d="M12 17.01L12.01 16.9989" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <p style="z-index: 1000; margin: 0; padding-left: 50px; padding-right: 50px">Moving on will render the <%=country1%> vs. <%=country2%> conflict void.</p>
+        </div>
+        
+        <div style="display: flex; justify-content: center; column-gap: 70px; margin-top: 100px">
+            <form class="back" action="/combatants" method="POST">
+            <input type="hidden" name="option1" id="option1" value="<%=country1%>">
+            <input type="hidden" name="option2" id="option2" value="<%=country2%>">
+            <button>Go Back</button>
+        </form>
+        <form class="next" action="/new-round" method="POST">
+            <input type="hidden" name="origin" id="origin" value="stalemate">
+            <button>Proceed</button>
+        </form>
+        </div>
+        
+    
+    
+    </div>
+        
+    <div id="footerDiv">
+        <p>World War I Game © 2024 M. Felsmann</p>
+    </div>
+    
+    <script>
+        async function homefunc() { //search box function
+            window.location.href = '/'; 
+        }
+    </script>
+</body>
+</html>
+

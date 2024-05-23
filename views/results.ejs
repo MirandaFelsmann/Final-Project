@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <div id="headerLinks">
           <form action="/about" method="GET">
               <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
@@ -73,6 +74,7 @@
             <input type="hidden" name="country2" value="<%= country2 %>">
             <input type="hidden" name="winner" id="winner">
             <input type="hidden" name="loser" id="loser">
+            <input type="hidden" name="stalemate" id="stalemate">
             <div style="display: flex; justify-content: space-between; width: 100%">
                 <a style="text-decoration: none" class="button" href="javascript:history.go(-1)">&larr;</a>
                 <button class="button" type="submit">&rarr;</button>
@@ -102,6 +104,7 @@
                 console.log('country2')
             } else if (parseInt(document.getElementById('total1').textContent) === parseInt(document.getElementById('total2').textContent)) {
                 document.getElementById('result').textContent = "This battle has ended in a stalemate"
+                document.getElementById('stalemate').value = "true";
                 console.log("tie")
             }
         

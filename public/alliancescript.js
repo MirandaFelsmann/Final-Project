@@ -413,5 +413,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });
 
-
-
+async function homefunc() { //search box function
+    window.location.href = '/'; 
+}

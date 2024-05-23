@@ -24,12 +24,12 @@ router.get('/country-details/:name', async (req, res) => {
     try {
         const nationName = req.params.name;
         
-        console.log(nationName);
+//        console.log(nationName);
         
         // Using findOne instead of find
         const nation = await Nation.findOne({ name: nationName });
-        console.log(nation.moral);
-        console.log(nation.originalStats);
+//        console.log(nation.moral);
+//        console.log(nation.originalStats);
         
         if (nation) {
             if (req.headers['hx-request']) {
@@ -87,6 +87,10 @@ router.get('/reset', game.reset)
 
 router.get('/about', game.about);
 
+router.get('/finishFake', game.finishFake)
+
+//router.get('/login', game.loginFake)
+//router.get('/register', game.registerFake)
 
 
 

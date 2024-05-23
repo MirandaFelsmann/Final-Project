@@ -1,0 +1,126 @@
+/*
+body {
+    margin: 0;
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+#headerLinks {
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+
+#topSpaceFill {
+    height: 10px;
+}
+
+#content {
+    padding: 30px 30px 30px 30px;
+}
+
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}*/
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lemon Milk', sans-serif;
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+#headerLinks {
+/*    background-color: #1a2d44;*/
+    background-color: #d5dede;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    column-gap: 35px; 
+    align-items: center;
+    height: 82px;
+    width: 50vw;
+    margin: auto;
+/*    width: calc(100% - 20px);*/
+/*    margin: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: fixed;*/
+    z-index: 1000;
+    border-bottom: 1px solid grey;
+    margin-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+#topSpaceFill {
+    height: 10px;
+}
+
+#content {
+    padding: 30px 70px 0px 70px;
+/*    padding-top: 30px;*/
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Flex grow to take up all available space */
+/*    margin-bottom: 30px;*/
+    font-family: Kumbh Sans;
+}
+
+.back, .next {
+    display: flex;
+    justify-content: center;
+}
+
+.back button, .next button {
+    font-family: Lemon Milk;
+    font-size: 1.1rem;
+    width: 130px;
+    height: 50px;
+    /*    background-color: #708090;*/
+    background-color: #B08D57;
+/*    border: none;*/
+    border: none;
+    border-radius: 30px;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.back button:hover, .next button:hover {
+    background-color: #A17E45;
+}
+
+#footerDiv {
+    text-align: center;
+    background-color: #a3aaaa;
+    margin: 0;
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}
+

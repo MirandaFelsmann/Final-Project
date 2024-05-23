@@ -25,7 +25,7 @@
     
     <div id="content">
         <div>
-            <h3 style="font-weight: 400; text-align: center"><%= stillIn[0].name %> has emerged as the ultimate victor, with <%= stillIn[0].army %> army points, <%= stillIn[0].navy %> navy points, a morale factor of <%= stillIn[0].moral %>—clocking in at a total of <%= stillIn[0].total %> points. All other countries have been eliminated.</h3>
+            <h3 style="font-weight: 400; text-align: center"><%= name %> has emerged as the ultimate victor, with <%= army %> army points, <%= navy %> navy points, a morale factor of <%= moral %>—clocking in at a total of <%= total %> points. All other countries have been eliminated.</h3>
         </div>
         
         <div style="background: linear-gradient(-60deg, #d5dede 10%, #354860 10%, #354860 90%, #d5dede 90%); padding: 10px; color: lightgrey; margin: auto; margin-top: 30px; margin-bottom: 30px; min-width: 300px;">
@@ -34,18 +34,14 @@
         
     
         <form class="reset" action="/reset" method="GET">
-            <button>RESET</button>
+            <button class="button">RESET</button>
         </form>
     </div>
-        
+    
     <div id="footerDiv">
         <p>World War I Game © 2024 M. Felsmann</p>
     </div>
     
-    <script>
-        async function homefunc() { //search box function
-            window.location.href = '/'; 
-        }
-    </script>
+    
 </body>
 </html>

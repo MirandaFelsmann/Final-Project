@@ -1,29 +1,226 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="loginstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background: url('/images/walking.jpg') no-repeat left center;
+            background-size: cover;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            background-color: #7b0000;
+            opacity: 1; 
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7); 
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, input, button, p {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Log into your account.</h1>
+            <form action="/login" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="/register">Create one here</a></p>
+        </div>
+    </div>
+</body>
+</html>
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register</title>
-    <link rel="stylesheet" href="registerstyles.css">
+    <link rel="stylesheet" href="loginstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DhKNFLvUyQ9+P8LEWz/NHe2kLtQ2/S6/NaW14HwBCeMEk5/M9A7sSxQyb9Qq1KRg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Kumbh Sans', sans-serif;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background: url('/images/walking.jpg') no-repeat right top;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #354860; /* Adjust the opacity as needed */
+            z-index: 1;
+            width: 40%;
+            display: flex;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            margin: auto;
+        }
+        form {
+/*            padding: 20px;*/
+            border-radius: 8px;
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+        input, button {
+/*            padding: 10px;*/
+        }
+        button {
+            background-color: #B08D57;
+            color: white;
+            border: none;
+            cursor: pointer;
+            height: 45px;
+            border-radius: 25px;
+        }
+        button:hover {
+            background-color: #A17E45;
+        }
+        input {
+            border: none;
+            padding: 0;
+            background-color: #888c99;
+            height: 100%;
+            border-radius: 10px;
+            padding-left: 40px;
+            width: calc(100% - 40px);
+        }
+    </style>
 </head>
 <body>
- <div class="container">
-     <h1>Register</h1>
-  <form action="/register" method="POST">
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
+    <div class="container">
+        <div class="overlay">
+            <div class="content">
+            <h1>Create an account.</h1>
+            <form action="/register" method="POST">
+                <div>
+                    <label for="accountName" style="text-align: left;">USERNAME:</label>
+                    <div style="height: 36px">
+                        <svg style="position: absolute; margin-top: 6px; left: 10px" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#ffffff"><path d="M16 12H17.4C17.7314 12 18 12.2686 18 12.6V19.4C18 19.7314 17.7314 20 17.4 20H6.6C6.26863 20 6 19.7314 6 19.4V12.6C6 12.2686 6.26863 12 6.6 12H8M16 12V8C16 6.66667 15.2 4 12 4C8.8 4 8 6.66667 8 8V12M16 12H8" stroke="lightgrey" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        <input type="text" id="accountName" name="accountName" placeholder="Robert Frost" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="username" style="text-align: left;">EMAIL:</label>
+                    <div style="height: 36px">
+                        <svg style="position: absolute; margin-top: 6px; left: 10px" width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="lightgrey"><path d="M17.5 19.1245C15.9791 20.3003 14.0712 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 17.5 15 17.5 15 14C15 12 15 8 15 8" stroke="lightgrey" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 12V10.5C15 9.11929 13.6569 8 12 8C10.3431 8 9 9.11929 9 10.5V12" stroke="lightgrey" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 12V13.5C15 14.8807 13.6569 16 12 16C10.3431 16 9 14.8807 9 13.5V12" stroke="lightgrey" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        <input type="text" id="username" name="username" placeholder="robertfrost@gmail.com" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="password" style="text-align: left;">PASSWORD:</label>
+                    <div style="height: 36px">
+                        <svg style="position: absolute; margin-top: 6px; left: 10px"  width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M5 20V19C5 15.134 8.13401 12 12 12V12C15.866 12 19 15.134 19 19V20" stroke="lightgrey" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="lightgrey" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        <input type="password" id="password" name="password" placeholder="***" required>
+                    </div>
+                </div>
+                
+                <br>
+                <button type="submit" style="font-size: 1.2rem; font-weight: 600">REGISTER</button>
+            </form>
+            <br>
+            <br>
+            <p>Already have an account? <a style="color: #B08D57" href="/login">Login here</a></p>
+        </div>
+        </div>
+        
     </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <div>
-      <label for="accountName">Account Name:</label>
-      <input type="text" id="accountName" name="accountName" required>
-    </div>
-    <button type="submit">Register</button>
-  </form>
-  <p>Already have an account? <a href="/login">Login here</a></p>
- </div>
-  
 </body>
 </html>
+
+
+

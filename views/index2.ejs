@@ -13,13 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    
-
-   
-    <div id="container" style="display: flex">
-        <div style="width: 25vw"></div>
-        <div id="headerLinks">
+    <div id="headerLinks">
           <form action="/about" method="GET">
               <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">about</button>
           </form>
@@ -27,22 +21,20 @@
           <form action="/profile" method="GET">
               <button style="color: grey; border: none; font-family: Lemon Milk; font-size: 1rem; background-color: transparent">profiles</button>
           </form>
-    </div>
-        <div style="width: 25vw; height: 98px; display: flex; align-items: center">
-            <div class="menu-container">
-        <div class="menu-icon" onclick="toggleDropdown()">
-            <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#354860"><path d="M3 5H21" stroke="#354860" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 12H21" stroke="#354860" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 19H21" stroke="#354860" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <div class="menu-container">
+            <div class="menu-icon" onclick="toggleDropdown()">
+                <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000">
+                    <path d="M3 5H21" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3 12H21" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3 19H21" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="/hard-reset">Hard Reset</a>
+                <a href="/logout">Log Out</a>
+            </div>
         </div>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="/reset">hard reset<svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M6.67742 20.5673C2.53141 18.0212 0.758026 12.7584 2.71678 8.1439C4.87472 3.0601 10.7453 0.68822 15.8291 2.84617C20.9129 5.00412 23.2848 10.8747 21.1269 15.9585C20.2837 17.945 18.8736 19.5174 17.1651 20.5673" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17 16V20.4C17 20.7314 17.2686 21 17.6 21H22" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 22.01L12.01 21.9989" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-            <a href="/login">log out<svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M12 12H19M19 12L16 15M19 12L16 9" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19 6V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V18" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-        </div>
     </div>
-        </div>
-    </div>
-    
-    
-    
     <div id="topSpaceFill"></div>
     <div id="mainStartDiv">
         <form id="startForm" action="/startGame" method="GET">
@@ -57,7 +49,6 @@
             <p style="font-family: Kumbh Sans"><span style="color: #b30000; font-family: Lemon Milk;">War.</span> is a simulation game based off of World War I. This game pits country against country in a struggle for power across a vast region. Alliances, negotiations, and distribution of the spoils of victory are all essential to staying alive in the game. But beware...not even alliances are safe from sabotage.</p>
         </div>
     </div>
-<!--
     <form action="/reset" method="GET">
         <button>RESET</button>
     </form>
@@ -70,7 +61,6 @@
     <form action="/register" method="GET">
         <button>REGISTER</button>
     </form>
--->
     
     
     
