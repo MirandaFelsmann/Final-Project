@@ -146,93 +146,100 @@ const deleteAllies = async (countryData) => {
 }
 
 const processCountry = async (countryData) => {
-    const { name, stats, allies } = countryData;
     
-    const nation = await Nation.findOne({ name });
-    
-    if (!nation) {
-        throw new Error("Nation not found");
-    }
-    
-    console.log("name: " + name);
-    console.log(stats);
-    console.log(allies);
-    
-    let alliesCount;
-    
-    var countryArmy = 0;
-    var countryNavy = 0;
-    
-    
-    if (allies === undefined) {
-        alliesCount = 0;
-    }
-    
-    if (allies != undefined) {
-        const alliesCount = Object.keys(allies).length;
+    try {
+        const { name, stats, allies } = countryData;
 
-        for (let i = 0; i < alliesCount; i++) {
-            console.log(allies[`Ally${i}`]);
+        const nation = await Nation.findOne({ name });
+
+        if (!nation) {
+            throw new Error("Nation not found");
         }
 
-        // Find the nation by name
+        console.log("name: " + name);
+        console.log(stats);
+        console.log(allies);
+
+        let alliesCount;
+
+        var countryArmy = 0;
+        var countryNavy = 0;
 
 
-        
-        
-        console.log(countryArmy);
-        console.log("countryArmy");
+        if (allies === undefined) {
+            alliesCount = 0;
+        }
 
-        nation.currAllies = nation.currAllies || [];
+        if (allies != undefined) {
+            const alliesCount = Object.keys(allies).length;
 
-        // Refactored to use for...of for async operations
-        for (const allyKey of Object.keys(allies)) {
-            const ally = allies[allyKey];
-            const name = ally.name;
-            console.log(".....");
-            console.log(name);
-            const allyInList = await Nation.findOne({ name: name })
-            console.log("--")
-            console.log(allyInList.army);
-            console.log("--")
-
-            nation.currAllies.push({
-                name: ally.name,
-                armyDonate: ally.army,
-                navyDonate: ally.navy,
-                inReturn: ally.reward,
-                army: allyInList.army,
-                navy: allyInList.navy,
-            });
-
-            countryArmy += parseInt(ally.army, 10);
-            countryNavy += parseInt(ally.navy, 10);
-            
-            
-
-            // Find the ally nation to update its army and navy
-            const allyObject = await Nation.findOne({ name: ally.name });
-            if (!allyObject) {
-                throw new Error(`Ally Nation ${ally.name} not found`);
+            for (let i = 0; i < alliesCount; i++) {
+                console.log(allies[`Ally${i}`]);
             }
 
-            allyObject.army -= parseInt(ally.army, 10);
-            allyObject.navy -= parseInt(ally.navy, 10);
-            allyObject.total = allyObject.total - parseInt(ally.army, 10) - parseInt(ally.navy, 10);
+            // Find the nation by name
 
-            console.log(allyObject.army);
 
-            // Save the updated ally nation
-            await allyObject.save();
+
+
+            console.log(countryArmy);
+            console.log("countryArmy");
+
+            nation.currAllies = nation.currAllies || [];
+
+            // Refactored to use for...of for async operations
+            for (const allyKey of Object.keys(allies)) {
+                const ally = allies[allyKey];
+                const name = ally.name;
+                console.log(".....");
+                console.log(name);
+                const allyInList = await Nation.findOne({ name: name })
+                console.log("--")
+                console.log(allyInList.army);
+                console.log("--")
+
+                nation.currAllies.push({
+                    name: ally.name,
+                    armyDonate: ally.army,
+                    navyDonate: ally.navy,
+                    inReturn: ally.reward,
+                    army: allyInList.army,
+                    navy: allyInList.navy,
+                });
+
+                countryArmy += parseInt(ally.army, 10);
+                countryNavy += parseInt(ally.navy, 10);
+
+
+
+                // Find the ally nation to update its army and navy
+                const allyObject = await Nation.findOne({ name: ally.name });
+                if (!allyObject) {
+                    throw new Error(`Ally Nation ${ally.name} not found`);
+                }
+
+                allyObject.army -= parseInt(ally.army, 10);
+                allyObject.navy -= parseInt(ally.navy, 10);
+                allyObject.total = allyObject.total - parseInt(ally.army, 10) - parseInt(ally.navy, 10);
+
+                console.log(allyObject.army);
+
+                // Save the updated ally nation
+                await allyObject.save();
+            }
         }
-    }
-    
-    nation.totalArmy = nation.army + countryArmy;
-    nation.totalNavy = nation.navy + countryNavy;
-    nation.totalTotal = nation.total + countryArmy + countryNavy;
 
-    // Save the updated main nation
-    await nation.save();
+        nation.totalArmy = nation.army + countryArmy;
+        nation.totalNavy = nation.navy + countryNavy;
+        nation.totalTotal = nation.total + countryArmy + countryNavy;
+
+        // Save the updated main nation
+        await nation.save();
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+        
 };
 
 
@@ -299,141 +306,144 @@ export const aftermath = async (req, res) => {
 };
 
 export const newRound = async (req, res) => {
-    
-    if (req.body.origin === "win") {
-        const winnerName = req.body.victor;
-        const winner = await Nation.findOne({ name: winnerName });
-        const nations = await Nation.find();
+    try {
+        if (req.body.origin === "win") {
+            const winnerName = req.body.victor;
+            const winner = await Nation.findOne({ name: winnerName });
+            const nations = await Nation.find();
 
-        const body = req.body;
-    //    console.log(body.victor);
-    //    console.log(body.armyLeft);
-    //    console.log(body.navyLeft);
-    //    console.log(body[`${winner.name}Army`]);
-    //    console.log(body[`${winner.name}Navy`]);
-    //    console.log(body[`${winner.name}Moral`]);
-    //    console.log(body[`${winner.name}Total`]); 
+            const body = req.body;
+        //    console.log(body.victor);
+        //    console.log(body.armyLeft);
+        //    console.log(body.navyLeft);
+        //    console.log(body[`${winner.name}Army`]);
+        //    console.log(body[`${winner.name}Navy`]);
+        //    console.log(body[`${winner.name}Moral`]);
+        //    console.log(body[`${winner.name}Total`]); 
 
-        winner.army = body[`${winner.name}Army`];
-        winner.navy = body[`${winner.name}Navy`];
-        winner.moral = body[`${winner.name}Moral`];
-        winner.total = body[`${winner.name}Total`];
+            winner.army = body[`${winner.name}Army`];
+            winner.navy = body[`${winner.name}Navy`];
+            winner.moral = body[`${winner.name}Moral`];
+            winner.total = body[`${winner.name}Total`];
 
-        console.log(winner)
+            console.log(winner)
 
-        await winner.save(); 
+            await winner.save(); 
 
-    //    console.log(body.armyLeft);
-    //    console.log(body.armyLeft);
-    //    console.log(body.armyLeft);
-    //    
+        //    console.log(body.armyLeft);
+        //    console.log(body.armyLeft);
+        //    console.log(body.armyLeft);
+        //    
 
 
-    //    console.log(winner.currAllies);
-        for (let i = 0; i < winner.currAllies.length; i++) {
-            const allyName = winner.currAllies[i].name;
-            const allyArmyKey = allyName + "Army";
-            const allyNavyKey = allyName + "Navy";
-            const allyTotalKey = allyName + "Total";
-            const allyArmyEarned = req.body[allyArmyKey];
-            const allyNavyEarned = req.body[allyNavyKey];
-            const allyTotalEarned = req.body[allyTotalKey];
-    //        console.log(allyArmyEarned);
-            const allyObj = await Nation.findOne({ name: allyName });
+        //    console.log(winner.currAllies);
+            for (let i = 0; i < winner.currAllies.length; i++) {
+                const allyName = winner.currAllies[i].name;
+                const allyArmyKey = allyName + "Army";
+                const allyNavyKey = allyName + "Navy";
+                const allyTotalKey = allyName + "Total";
+                const allyArmyEarned = req.body[allyArmyKey];
+                const allyNavyEarned = req.body[allyNavyKey];
+                const allyTotalEarned = req.body[allyTotalKey];
+        //        console.log(allyArmyEarned);
+                const allyObj = await Nation.findOne({ name: allyName });
 
-            console.log("allyObj name: ");
-            console.log(allyObj.name);
-            console.log("xxx");
-            allyObj.army = parseInt(allyArmyEarned, 10);
-            allyObj.navy = parseInt(allyNavyEarned, 10);
-            allyObj.total = parseInt(allyTotalEarned, 10);
-            await allyObj.save();
-            console.log(allyObj);
-            console.log("---")
-        }
+                console.log("allyObj name: ");
+                console.log(allyObj.name);
+                console.log("xxx");
+                allyObj.army = parseInt(allyArmyEarned, 10);
+                allyObj.navy = parseInt(allyNavyEarned, 10);
+                allyObj.total = parseInt(allyTotalEarned, 10);
+                await allyObj.save();
+                console.log(allyObj);
+                console.log("---")
+            }
 
-        for (let x = 0; x < nations.length; x++) {
-            const nation = await Nation.findOne({ name: nations[x].name });
-            console.log(nation);
-            console.log(nation.name);
-            nation.totalArmy = nation.army;
-            nation.totalNavy = nation.navy;
-            nation.totalTotal = nation.total;
-            await nation.save();
-            console.log(nation.army);
-            console.log(nation.totalArmy);
-            console.log(",,,,,,,,")
-        } 
+            for (let x = 0; x < nations.length; x++) {
+                const nation = await Nation.findOne({ name: nations[x].name });
+                console.log(nation);
+                console.log(nation.name);
+                nation.totalArmy = nation.army;
+                nation.totalNavy = nation.navy;
+                nation.totalTotal = nation.total;
+                await nation.save();
+                console.log(nation.army);
+                console.log(nation.totalArmy);
+                console.log(",,,,,,,,")
+            } 
 
-        const lostCountryName = req.body.LOST;
-        const lostCountry = await Nation.findOne({ name: lostCountryName });
-        lostCountry.moral = 0;
-        await lostCountry.save();
-        const refugeCountryName = req.body.refugeeAccept;
-    //    console.log(refugeCountryName);
-        const refugeCountry = await Nation.findOne({ name: refugeCountryName });
-    //    console.log(refugeCountry);
-        refugeCountry.moral += parseInt(req.body.moralValue)
-        refugeCountry.total += parseInt(req.body.moralValue);
-        refugeCountry.totalTotal += parseInt(req.body.moralValue);
+            const lostCountryName = req.body.LOST;
+            const lostCountry = await Nation.findOne({ name: lostCountryName });
+            lostCountry.moral = 0;
+            await lostCountry.save();
+            const refugeCountryName = req.body.refugeeAccept;
+        //    console.log(refugeCountryName);
+            const refugeCountry = await Nation.findOne({ name: refugeCountryName });
+        //    console.log(refugeCountry);
+            refugeCountry.moral += parseInt(req.body.moralValue)
+            refugeCountry.total += parseInt(req.body.moralValue);
+            refugeCountry.totalTotal += parseInt(req.body.moralValue);
 
-        const topCountries = await Nation.find().sort({ total: -1 }).limit(2);
-        const lowCountry = await Nation.find({ total: { $ne: 0 } }).sort({ total: 1 }).limit(1);
-        await refugeCountry.save();
-        console.log(refugeCountry)
+            const topCountries = await Nation.find().sort({ total: -1 }).limit(2);
+            const lowCountry = await Nation.find({ total: { $ne: 0 } }).sort({ total: 1 }).limit(1);
+            await refugeCountry.save();
+            console.log(refugeCountry)
 
-        const stillIn = await Nation.find({ total: { $ne: 0 }});
-        const eliminated = await Nation.find({ total: 0 }); 
+            const stillIn = await Nation.find({ total: { $ne: 0 }});
+            const eliminated = await Nation.find({ total: 0 }); 
 
-        for(let i = 0; i < stillIn.length; i++) {
-    //                console.log(stillIn[i].name);
-    //                console.log(stillIn[i].total);
+            for(let i = 0; i < stillIn.length; i++) {
+        //                console.log(stillIn[i].name);
+        //                console.log(stillIn[i].total);
+                    }
+        //    console.log(stillIn.length);
+        //    console.log("still in length");
+
+            if (stillIn.length === 1) {
+                console.log(stillIn);
+                console.log(stillIn[0].army);
+
+                const stillInStats = {
+                    name: stillIn[0].name,
+                    army: stillIn[0].army,
+                    moral: stillIn[0].moral,
+                    total: stillIn[0].total,
                 }
-    //    console.log(stillIn.length);
-    //    console.log("still in length");
 
-        if (stillIn.length === 1) {
-            console.log(stillIn);
-            console.log(stillIn[0].army);
+                console.log(stillInStats); 
 
-            const stillInStats = {
-                name: stillIn[0].name,
-                army: stillIn[0].army,
-                moral: stillIn[0].moral,
-                total: stillIn[0].total,
+                res.render('finish', { stillIn, eliminated, stillInStats });
+            } else {
+                res.render('newround', { content: req.body, nations, winner, topCountries, lowCountry, stillIn, eliminated } );
+            }
+        } else {
+            console.log("stalemate");
+            const nations = await Nation.find();
+            const topCountries = await Nation.find().sort({ total: -1 }).limit(2);
+            const lowCountry = await Nation.find({ total: { $ne: 0 } }).sort({ total: 1 }).limit(1);
+            const stillIn = await Nation.find({ total: { $ne: 0 }});
+            const eliminated = await Nation.find({ total: 0 }); 
+            if (stillIn.length === 1) {
+                console.log(stillIn);
+                console.log(stillIn[0].army);
+
+                const stillInStats = {
+                    name: stillIn[0].name,
+                    army: stillIn[0].army,
+                    moral: stillIn[0].moral,
+                    total: stillIn[0].total,
+                }
+
+                console.log(stillInStats); 
+
+                res.render('finish', { stillIn, eliminated, stillInStats });
+            } else {
+                res.render('newround', { nations, topCountries, lowCountry, stillIn, eliminated } );
             }
 
-            console.log(stillInStats); 
-
-            res.render('finish', { stillIn, eliminated, stillInStats });
-        } else {
-            res.render('newround', { content: req.body, nations, winner, topCountries, lowCountry, stillIn, eliminated } );
         }
-    } else {
-        console.log("stalemate");
-        const nations = await Nation.find();
-        const topCountries = await Nation.find().sort({ total: -1 }).limit(2);
-        const lowCountry = await Nation.find({ total: { $ne: 0 } }).sort({ total: 1 }).limit(1);
-        const stillIn = await Nation.find({ total: { $ne: 0 }});
-        const eliminated = await Nation.find({ total: 0 }); 
-        if (stillIn.length === 1) {
-            console.log(stillIn);
-            console.log(stillIn[0].army);
-
-            const stillInStats = {
-                name: stillIn[0].name,
-                army: stillIn[0].army,
-                moral: stillIn[0].moral,
-                total: stillIn[0].total,
-            }
-
-            console.log(stillInStats); 
-
-            res.render('finish', { stillIn, eliminated, stillInStats });
-        } else {
-            res.render('newround', { nations, topCountries, lowCountry, stillIn, eliminated } );
-        }
-        
+    } catch (error) {
+        console.error("Error:", error);
     }
     
     
