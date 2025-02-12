@@ -23,9 +23,11 @@ body {
 /*    border-radius: 20px;*/
 /*    position: fixed;*/
     z-index: 1000;
-    border-bottom: 1px solid grey;
+        border-bottom: 1px solid grey;
+
     margin-top: 10px;
     padding-bottom: 5px;
+    position: relative; /* Added for dropdown absolute positioning */
 }
 
 #topSpaceFill {

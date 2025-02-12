@@ -104,7 +104,15 @@ export const submit = async (req, res) => {
         const nation1 = await Nation.findOne({ name: { $in: [countryName1] } });
          
         const countryName2 = req.body.country2.name;
-        const nation2 = await Nation.findOne({ name: { $in: [countryName2] } });        
+        const nation2 = await Nation.findOne({ name: { $in: [countryName2] } }); 
+        
+        const nations = await Nation.find({ name: { $in: [countryName1, countryName2] } });
+    
+        let countryIsLandlocked = 'no';
+        const isAnyLandlocked = nations.some(nation => nation.isLandlocked === true);
+        if (isAnyLandlocked) {
+            countryIsLandlocked = 'yes';
+        } 
 
 //        res.status(200).json({ message: "Both nations updated successfully" });
         
@@ -121,7 +129,8 @@ export const submit = async (req, res) => {
                                navy2: nation2.totalNavy,
                                total2: nation2.totalTotal,
                                moral2: nation2.moral, 
-                               numAllies2: nation2.currAllies.length })
+                               numAllies2: nation2.currAllies.length,
+                               countryIsLandlocked })
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ message: "Internal server error" });
@@ -460,66 +469,79 @@ export const next = async (req, res) => {
 
 export const reset = async (req, res) => {
     try {
-        const nations = await Nation.find();
-        nations[0].army = 700;
-        nations[0].navy = 600;
-        nations[0].moral = 240;
-        nations[0].total = 1540;
-        nations[0].totalArmy = 700;
-        nations[0].totalNavy = 600;
-        nations[0].totalTotal = 1540;
+        
+        
+        const Bismania = await Nation.findOne({ name: "Bismania" });
+        const Egrama = await Nation.findOne({ name: "Egrama" });
+        const Bontus = await Nation.findOne({ name: "Bontus" });
+        const Galbion = await Nation.findOne({ name: "Galbion" });
+        const Atweena = await Nation.findOne({ name: "Atweena" });
+        const Andros = await Nation.findOne({ name: "Andros" });
+        const Nurovia = await Nation.findOne({ name: "Nurovia" });
+        
+        Andros.army = 700;
+        Andros.navy = 600;
+        Andros.moral = 240;
+        Andros.total = 1540;
+        Andros.totalArmy = 700;
+        Andros.totalNavy = 600;
+        Andros.totalTotal = 1540;
+        await Andros.save();
 
-        nations[1].army = 1000;
-        nations[1].navy = 0;
-        nations[1].moral = 240;
-        nations[1].total = 1240;
-        nations[1].totalArmy = 1000;
-        nations[1].totalNavy = 0;
-        nations[1].totalTotal = 1240;
+        Atweena.army = 1000;
+        Atweena.navy = 0;
+        Atweena.moral = 240;
+        Atweena.total = 1240;
+        Atweena.totalArmy = 1000;
+        Atweena.totalNavy = 0;
+        Atweena.totalTotal = 1240;
+        await Atweena.save();
 
-        nations[2].army = 800;
-        nations[2].navy = 700;
-        nations[2].moral = 240;
-        nations[2].total = 1740;
-        nations[2].totalArmy = 800;
-        nations[2].totalNavy = 700;
-        nations[2].totalTotal = 1740;
+        Bismania.army = 800;
+        Bismania.navy = 700;
+        Bismania.moral = 240;
+        Bismania.total = 1740;
+        Bismania.totalArmy = 800;
+        Bismania.totalNavy = 700;
+        Bismania.totalTotal = 1740;
+        await Bismania.save();
 
-        nations[3].army = 460;
-        nations[3].navy = 400;
-        nations[3].moral = 240;
-        nations[3].total = 1100;
-        nations[3].totalArmy = 460;
-        nations[3].totalNavy = 400;
-        nations[3].totalTotal = 1100;
+        Bontus.army = 460;
+        Bontus.navy = 400;
+        Bontus.moral = 240;
+        Bontus.total = 1100;
+        Bontus.totalArmy = 460;
+        Bontus.totalNavy = 400;
+        Bontus.totalTotal = 1100;
+        await Bontus.save();
 
-        nations[4].army = 520;
-        nations[4].navy = 400;
-        nations[4].moral = 240;
-        nations[4].total = 1160;
-        nations[4].totalArmy = 520;
-        nations[4].totalNavy = 400;
-        nations[4].totalTotal = 1160;
+        Egrama.army = 520;
+        Egrama.navy = 400;
+        Egrama.moral = 240;
+        Egrama.total = 1160;
+        Egrama.totalArmy = 520;
+        Egrama.totalNavy = 400;
+        Egrama.totalTotal = 1160;
+        await Egrama.save();
 
-        nations[5].army = 500;
-        nations[5].navy = 1000;
-        nations[5].moral = 240;
-        nations[5].total = 1740;
-        nations[5].totalArmy = 500;
-        nations[5].totalNavy = 1000;
-        nations[5].totalTotal = 1740;
+        Galbion.army = 500;
+        Galbion.navy = 1000;
+        Galbion.moral = 240;
+        Galbion.total = 1740;
+        Galbion.totalArmy = 500;
+        Galbion.totalNavy = 1000;
+        Galbion.totalTotal = 1740;
+        await Galbion.save();
 
-        nations[6].army = 500;
-        nations[6].navy = 500;
-        nations[6].moral = 240;
-        nations[6].total = 1240;
-        nations[6].totalArmy = 500;
-        nations[6].totalNavy = 500;
-        nations[6].totalTotal = 1240;
+        Nurovia.army = 500;
+        Nurovia.navy = 500;
+        Nurovia.moral = 240;
+        Nurovia.total = 1240;
+        Nurovia.totalArmy = 500;
+        Nurovia.totalNavy = 500;
+        Nurovia.totalTotal = 1240;
+        await Nurovia.save();
 
-        for (const nation of nations) {
-            await nation.save();
-        }    
 
         res.redirect('/');
     } catch (error) {
